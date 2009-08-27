@@ -1,0 +1,8 @@
+
+
+
+;;JAVE TODO
+;;
+;; - not every single page needs saving, for example dont save w3m
+;;   buffers that you only look at for a second before killing
+;; - save a little bit of context(like which projects are active atm)
