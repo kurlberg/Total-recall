@@ -1,8 +1,17 @@
 
 
 
-;;JAVE TODO
-;;
-;; - not every single page needs saving, for example dont save w3m
-;;   buffers that you only look at for a second before killing
-;; - save a little bit of context(like which projects are active atm)
+* JAVE TODO
+
+ - not every single page needs saving, for example dont save w3m
+   buffers that you only look at for a second before killing
+
+ - save a little bit of context(like which projects are active atm)
+
+* TODO
+
+ - Privacy implication: should files in ~/.total-recall be encrypted?
+   Having your complete browsing history "public" might not be
+   desirable - what if someone found out that you've been hanging out
+   at www.vim.org!?
+
