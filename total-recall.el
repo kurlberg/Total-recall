@@ -11,6 +11,7 @@
 ; space delimited string, with the checksum as the first word.  (This
 ; works with md5sum, gsha1sum, and cksum.)
 
+
 ;;; History:
 ;; 
 
@@ -50,6 +51,9 @@
   (car (split-string
 	(shell-command-to-string 
 	 (concat pk-checksum-program " " pk-tmp-file-name)))))
+;;JAVE TODO do a process here... async and works with tramp.
+;; PK: hack away! :-)
+
 
 (defun pk-save-page (url)
   ; Dump web page text to file, compute its checksum, and rename file
