@@ -39,9 +39,12 @@ Feel free to add more!")
 ;; FIXME: bad notation to call it binary?
 (defun pk-util-select-binary (l)
   "Given a list of programs, select the first one found using 'which'."
+  ; fixme: somewhat buggy - gnu which has different output format 
+  ; when no command is found on path.
   (if (null l)
       (error "No binary in list available!")
     (let ((binary (shell-command-to-string
+		   ;(concat "which 2> /dev/null " (car l)))))
 		   (concat "which " (car l)))))
       (if (not (string= "" binary))
 	  (car (split-string binary))
