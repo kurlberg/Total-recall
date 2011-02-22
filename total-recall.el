@@ -16,8 +16,6 @@
 ;; 
 ;; PK started hacking on this in August 2009. 
 
-
-
 ;;; Code:
 
 ;;;; Things for the user to configure.  However, we try to set things
@@ -34,30 +32,24 @@ Feel free to add more!")
 
 
 
+;; Zeroconf way of selecting an executable.
 
-;; Zeroconf way of selecting a binary.
-;; FIXME: bad notation to call it binary?
-(defun pk-util-select-binary (l)
-  "Given a list of programs, select the first one found using 'which'."
-  ; fixme: somewhat buggy - gnu which has different output format 
-  ; when no command is found on path.
+(defun pk-util-select-executable (l)
   (if (null l)
       (error "No binary in list available!")
-    (let ((binary (shell-command-to-string
-		   ;(concat "which 2> /dev/null " (car l)))))
-		   (concat "which " (car l)))))
-      (if (not (string= "" binary))
-	  (car (split-string binary))
-	(pk-util-select-binary (cdr l))))))
+    (let ((executable (executable-find (car l))))
+      (if executable
+	  executable
+	(pk-util-select-executable-new (cdr l))))))
 
 (defvar pk-checksum-program
-  ;; FIXME: Maybe better if the binary is fixed after a first inital
-  ;; selection - what if the user shares/syncs his ~/.total-recall
-  ;; between several computers, and they have different checksum
-  ;; programs installed!?  (Not a massive problem, the user can later
-  ;; run a program which renames files according to their (new)
-  ;; checksum.
-  (pk-util-select-binary pk-checksum-programs)
+  ;; MAYBE FIXME: Maybe better if the binary is fixed after a first
+  ;; inital selection - what if the user shares/syncs his
+  ;; ~/.total-recall between several computers, and they have
+  ;; different checksum programs installed!?  (Not a massive problem,
+  ;; the user can later run a program which renames files according to
+  ;; their (new) checksum.
+  (pk-util-select-executable pk-checksum-programs)
   "Which binary to use for checksums.")
 
 ;; Create directory for saving history if it does not already exist.
