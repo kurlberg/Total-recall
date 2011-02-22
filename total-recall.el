@@ -40,7 +40,7 @@ Feel free to add more!")
     (let ((executable (executable-find (car l))))
       (if executable
 	  executable
-	(pk-util-select-executable-new (cdr l))))))
+	(pk-util-select-executable (cdr l))))))
 
 (defvar pk-checksum-program
   ;; MAYBE FIXME: Maybe better if the binary is fixed after a first
