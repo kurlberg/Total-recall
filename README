@@ -1,6 +1,9 @@
 090827, 20:25.  My attempt of dressing up w3m so that (the text of)
 every web page I read is saved.
 
-110222, 21:05.  By default, all web pages will be saved in the
+200125, 16:25. By default, all web pages will be saved in the
 directory ~/.total-recall .  (This can be changed by setting
-pk-total-recall-directory to something different.)
+total-recall-directory to something different.)
+
+
+
