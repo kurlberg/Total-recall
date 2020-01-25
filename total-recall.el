@@ -57,7 +57,7 @@ Feel free to add more!")
   (make-directory total-recall-directory))
 
 ;; FIXME: bad style to use defvar here?
-(defvar total-recall-tmp-file-name (concat total-recall-directory "/tc-test"))
+(setq total-recall-tmp-file-name (concat total-recall-directory "/tc-test"))
 
 (defun total-recall-get-cksum ()
   "Compute cksum of file corresponding to temporarily saved buffer."
